@@ -25,11 +25,6 @@ model: any = {}; // {} empty object
   login() {
     this.accountService.login(this.model).subscribe(response => {
       this.router.navigateByUrl('/members');
-      this.toastr.success('Wellcome User')
-    }, error => {
-      console.log(error);
-      this.toastr.error(error.error);
-      
     })
   }
 
