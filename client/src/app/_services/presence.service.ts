@@ -33,7 +33,6 @@ export class PresenceService {
     this.hubConnection.on('UserIsOnline', username => {
       this.onlineUsers$.pipe(take(1)).subscribe(usernames => {
         this.onlineUsersSource.next([...usernames, username])
-        this.toastr.info(username + 'hadi beeeeee');
       })
     })
 
