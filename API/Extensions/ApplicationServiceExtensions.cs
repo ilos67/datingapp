@@ -21,10 +21,15 @@ namespace API.Extensions
             services.AddScoped<LogUserActivity>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
-            services.AddDbContext<DataContext>(optionsAction =>
+            // services.AddDbContext<DataContext>(optionsAction =>
+            // {
+            //     optionsAction.UseSqlite(config.GetConnectionString("DefaultConnection"));
+            // });
+             services.AddDbContext<DataContext>(optionsAction =>
             {
-                optionsAction.UseSqlite(config.GetConnectionString("DefaultConnection"));
+                optionsAction.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             });
+
         return services;
         }
     }

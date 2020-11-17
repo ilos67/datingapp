@@ -10,7 +10,6 @@ import { PresenceService } from './presence.service';
   providedIn: 'root'
 })
 export class AccountService {
-// baseUrl='https://localhost:5001/api/';
 baseUrl = environment.apiUrl;
 private currentUserSource = new ReplaySubject<User>(1);
 currentUser$ = this.currentUserSource.asObservable();
